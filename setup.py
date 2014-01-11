@@ -2,15 +2,24 @@
 """
 This module contains the tool of collective.recipe.cmd
 """
+import sys
+
 from setuptools import find_packages
 from setuptools import setup
+
+
+def get_text_from_file(fn):
+    text = open(fn, 'rb').read()
+    if sys.version_info >= (2, 6):
+        return text.decode('utf-8')
+    return text
 
 version = '0.8'
 description = 'A Buildout recipe to execute commands in the console user interface'
 long_description = (
-    open('README.rst').read() + '\n' +
-    open('CONTRIBUTORS.rst').read() + '\n' +
-    open('CHANGES.rst').read()
+    get_text_from_file('README.rst').read() + '\n' +
+    get_text_from_file('CONTRIBUTORS.rst') + '\n' +
+    get_text_from_file('CHANGES.rst')
 )
 
 entry_point = 'collective.recipe.cmd'
