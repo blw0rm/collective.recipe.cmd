@@ -17,7 +17,7 @@ def get_text_from_file(fn):
 version = '0.8'
 description = 'A Buildout recipe to execute commands in the console user interface'
 long_description = (
-    get_text_from_file('README.rst').read() + '\n' +
+    get_text_from_file('README.rst') + '\n' +
     get_text_from_file('CONTRIBUTORS.rst') + '\n' +
     get_text_from_file('CHANGES.rst')
 )
